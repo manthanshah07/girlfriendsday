@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Happy Girlfriends Day, Arya!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A special animated website for Arya, celebrating love since 27 Jan 2023."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Quicksand", sans-serif;
+        background: linear-gradient(135deg, #ffe6f0 0%, #fad0c4 100%);
+        overflow-x: hidden;
+        min-height: 100%;
+        color: #333;
+      }
+      .hearts-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .container {
+        position: relative;
+        z-index: 2;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 30px 12px 0 12px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 38px;
+      }
+      header h1 {
+        font-family: "Pacifico", cursive;
+        color: #f573a0;
+        font-size: 2.7em;
+        margin: 0;
+        animation: pop-in 1s;
+      }
+      @keyframes pop-in {
+        from {
+          opacity: 0;
+          transform: scale(0.82);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .subtitle,
+      .timer-subtitle {
+        color: #fba0b6;
+        font-size: 1.18em;
+        animation: fadeIn 2s 1s both;
+        text-align: center;
+        margin-top: 7px;
+        margin-bottom: 0;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      section {
+        margin: 42px 0;
+        background: #fff8fa;
+        border-radius: 19px;
+        box-shadow: 0 2px 20px #fdd8e294;
+        padding: 28px;
+        font-size: 1.1em;
+      }
+      section h2 {
+        font-family: "Pacifico", cursive;
+        color: #ee609c;
+        font-size: 1.53em;
+        margin-top: 0;
+        margin-bottom: 17px;
+        text-align: center;
+        letter-spacing: 0.5px;
+      }
+      /* Timer */
+      #together-timer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        font-size: 1.18em;
+        color: #f573a0;
+        font-family: "Quicksand", sans-serif;
+        text-align: center;
+        margin-bottom: 7px;
+        user-select: none;
+        font-weight: 600;
+      }
+      #together-timer span {
+        min-width: 74px;
+        background: #ffd6ec;
+        border-radius: 12px;
+        padding: 7px 10px;
+        box-shadow: 0 1px 7px #ffb1cf90;
+      }
+      /* Gallery */
+      .gallery {
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
+        padding: 6px 0;
+        scroll-behavior: smooth;
+        justify-content: flex-start;
+        align-items: center;
+        scrollbar-width: thin;
+        scrollbar-color: #f573a0 #fff8fa;
+      }
+      .gallery::-webkit-scrollbar {
+        height: 8px;
+        background: #fff8fa;
+      }
+      .gallery::-webkit-scrollbar-thumb {
+        background: #f573a0cc;
+        border-radius: 5px;
+      }
+      .gallery img {
+        height: 148px;
+        border-radius: 18px;
+        box-shadow: 0 3px 14px #ffb1cf47;
+        margin-bottom: 6px;
+        border: 3px solid #ffd6ec;
+        background: #fff;
+        flex-shrink: 0;
+        transition: transform 0.26s cubic-bezier(0.45, 1.7, 0.48, 1.34);
+        user-select: none;
+        object-fit: cover;
+      }
+      .gallery img:hover {
+        transform: scale(1.09) rotate(-2deg);
+      }
+      .subtitle {
+        margin-top: 9px;
+      }
+      /* Eye Section */
+      .highlight-box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        align-items: center;
+        justify-content: center;
+      }
+      .highlight-img {
+        box-shadow: 0 0 28px 6px #ffe3fa, 0 4px 18px #ee609c33;
+        border-radius: 30px;
+        border: 4px solid #f573a080;
+        background: #fff6fc;
+        padding: 6px;
+        max-width: 320px;
+        min-width: 180px;
+        text-align: center;
+        transition: box-shadow 0.28s;
+      }
+      .highlight-img img {
+        width: 100%;
+        max-width: 270px;
+        border-radius: 23px;
+        display: block;
+      }
+      .highlight-msg {
+        font-family: "Pacifico", cursive;
+        color: #fd90b9;
+        background: linear-gradient(
+          92deg,
+          #fd90b9 40%,
+          #fd7ba7 80%,
+          #fbdffd 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 1.23em;
+        letter-spacing: 0.5px;
+        line-height: 1.42;
+        text-align: center;
+        max-width: 325px;
+        margin: 0 3px;
+        text-shadow: 0 3px 16px #ffdbf850;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .highlight-msg span.special {
+        font-size: 1.54em;
+        margin-bottom: 0.3em;
+      }
+      .highlight-msg em {
+        display: block;
+        color: #ee609c;
+        font-family: Quicksand, sans-serif;
+        font-size: 0.87em;
+        font-weight: 700;
+        margin-top: 0.5em;
+        font-style: normal;
+      }
+      /* Gift box/Surprise */
+      .gift-box {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 22px auto;
+        cursor: pointer;
+        animation: bounce 1.7s infinite alternate;
+        outline: none;
+        transition: box-shadow 0.2s;
+      }
+      .gift-box:active,
+      .gift-box:focus {
+        filter: brightness(1.07) drop-shadow(0 0 7px #ffb7d8);
+      }
+      .gift-lid,
+      .gift-box-base {
+        position: absolute;
+        left: 0;
+        right: 0;
+        border-radius: 7px;
+      }
+      .gift-lid {
+        width: 100px;
+        height: 32px;
+        background: #ffc0da;
+        top: 0;
+        z-index: 2;
+        transition: transform 0.5s;
+      }
+      .gift-box.open .gift-lid {
+        transform: translateY(-45px) rotate(-10deg);
+      }
+      .gift-box-base {
+        width: 100px;
+        height: 68px;
+        background: #f573a0;
+        top: 32px;
+        z-index: 1;
+        box-shadow: 0 5px 20px #ffb1cf73;
+      }
+      .ribbon {
+        position: absolute;
+        left: 39px;
+        top: 0;
+        width: 20px;
+        height: 100px;
+        background: #fd90b9;
+        border-radius: 7px;
+        z-index: 3;
+      }
+      .heart-anim svg {
+        animation: heart-beat 1.4s infinite;
+      }
+      @keyframes bounce {
+        to {
+          transform: translateY(-10px) scale(1.03);
+        }
+      }
+      @keyframes heart-beat {
+        0%,
+        45% {
+          transform: scale(1);
+        }
+        49% {
+          transform: scale(1.2);
+        }
+        54% {
+          transform: scale(0.95);
+        }
+        59%,
+        100% {
+          transform: scale(1);
+        }
+      }
+      .gift-message {
+        display: none;
+        text-align: center;
+        color: #ee609c;
+        font-size: 1.25em;
+        margin-top: 20px;
+        animation: fadeIn 0.8s both;
+      }
+      .gift-box.open + .gift-message {
+        display: block;
+        animation: fadeIn 1.2s 0.3s both;
+      }
+      /* Footer */
+      footer {
+        text-align: center;
+        color: #fba0b6;
+        font-size: 1.03em;
+        margin: 40px 0 16px 0;
+        font-family: "Pacifico", cursive;
+        letter-spacing: 1px;
+        animation: handwriting 4.2s steps(40) 1s both;
+      }
+      @keyframes handwriting {
+        from {
+          width: 0;
+          opacity: 0;
+        }
+        to {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 12px 1.5vw;
+        }
+        section {
+          padding: 13px;
+        }
+        .gallery img,
+        .gallery img[style] {
+          height: 98px !important;
+        }
+        .highlight-box {
+          flex-direction: column;
+          gap: 19px;
+        }
+        .highlight-img img {
+          max-width: 99vw;
+        }
+        .highlight-msg {
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="hearts-bg" aria-hidden="true"></canvas>
+    <div class="container">
+      <header>
+        <h1>Happy Girlfriends Day, Arya!</h1>
+        <div class="subtitle">
+          Celebrating love since 27 Jan 2023<br />“Babygirl” &amp; Arya —
+          together forever 💖
+        </div>
+      </header>
+      <!-- Timer Section -->
+      <section>
+        <h2>
+          Together Since<br /><span style="font-family: 'Pacifico', cursive"
+            >27 Jan 2023, 23:31</span
+          >
+        </h2>
+        <div id="together-timer"></div>
+      </section>
+      <!-- Our Story Section -->
+      <section>
+        <h2>Our Story</h2>
+        <p id="typed-text" aria-live="polite"></p>
+      </section>
+      <!-- Memories Gallery -->
+      <section>
+        <h2>Our Memories</h2>
+        <div class="gallery" id="main-gallery">
+          <!-- Use your real image filenames -->
+          <img src="1 (1).jpeg" alt="Cuddling in the café" loading="lazy" />
+          <img src="1 (2).jpeg" alt="Fun time on the road" loading="lazy" />
+          <img src="1 (2).JPG" alt="At the fort under the sky" loading="lazy" />
+          <img src="1 (3).jpeg" alt="By the rocky shore" loading="lazy" />
+          <img src="1 (3).JPG" alt="Close moment on the train" loading="lazy" />
+          <img src="1 (4).jpeg" alt="Arya’s beautiful eyes" loading="lazy" />
+          <img src="1 (4).JPG" alt="Arya in Nature" loading="lazy" />
+          <img
+            src="1 (5).jpeg"
+            alt="Hand in hand by the sunset"
+            loading="lazy"
+          />
+
+          <img src="1 (6).jpeg" alt="Memorable day" loading="lazy" />
+          <img src="1 (10).jpg" alt="Fun adventure" loading="lazy" />
+          <img src="1 (11).jpg" alt="Joyful smile" loading="lazy" />
+          <img src="1 (9).jpg" alt="Best trip" loading="lazy" />
+          <img src="1 (8).jpg" alt="Silly faces" loading="lazy" />
+        </div>
+        <div class="subtitle" style="margin-top: 10px">
+          Swipe to see our cutest moments, Babdiii!
+        </div>
+      </section>
+      <!-- Her Beautiful Eyes Section -->
+      <section>
+        <h2
+          style="
+            color: #f573a0;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 27px;
+          "
+        >
+          Your Beautiful Eyes <span style="font-size: 1.2em">&#10024;</span>
+        </h2>
+        <div class="highlight-box">
+          <div class="highlight-img">
+            <img src="1 (1).jpg" alt="Arya's beautiful eyes" loading="lazy" />
+          </div>
+          <div class="highlight-msg">
+            <span class="special">&#128525;</span>
+            The sparkle that lights up my world ✨
+            <em>Those eyes remind me every day what love looks like.</em>
+          </div>
+        </div>
+      </section>
+      <!-- Sweet Surprise Section -->
+      <section>
+        <h2 style="color: #f573a0; text-align: center">A Sweeter Surprise</h2>
+        <div
+          id="surprise-box-container"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+          "
+        >
+          <div
+            id="gift-surprise"
+            class="gift-box"
+            tabindex="0"
+            aria-label="Open to see the surprise"
+          >
+            <div class="gift-lid"></div>
+            <div class="gift-box-base"></div>
+            <div class="ribbon"></div>
+            <div
+              class="heart-anim"
+              style="position: absolute; top: 36px; left: 25px"
+            >
+              <svg width="50" height="48" viewBox="0 0 50 48">
+                <path
+                  d="M24.96 43C-18 17 14 -8 24.95 10C35.9 -8 67 17 24.96 43z"
+                  fill="#f573a0"
+                  opacity="0.64"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="gift-message" id="surprise-message" style="display: none">
+            <div style="font-size: 1.7em; margin-bottom: 14px">🎉</div>
+            Arya, you are my sweetest gift—<br />
+            and being your <b style="color: #ee609c">Babygirl</b> is the best
+            surprise every day!<br />
+            <span style="font-size: 1.5em">💖</span>
+            <div style="font-size: 0.97em; margin-top: 10px">
+              I Love You so, so much!!!!
+            </div>
+          </div>
+          <canvas
+            id="confetti"
+            width="320"
+            height="130"
+            style="
+              pointer-events: none;
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+              top: 10px;
+              display: none;
+            "
+          ></canvas>
+        </div>
+      </section>
+    </div>
+    <footer>
+      With all my love,<br />
+      Yours forever, Babygirl
+    </footer>
+    <!-- Scripts (performance: only run after DOM ready) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Hearts animation background
+        const canvas = document.querySelector(".hearts-bg");
+        const ctx = canvas.getContext("2d");
+        let w, h;
+        let hearts = [];
+        function resize() {
+          w = window.innerWidth;
+          h = window.innerHeight;
+          canvas.width = w;
+          canvas.height = h;
+        }
+        window.addEventListener("resize", resize);
+        resize();
+        function heart(x, y, size) {
+          this.x = x;
+          this.y = y;
+          this.size = size;
+          this.yspeed = Math.random() * 0.5 + 0.6;
+          this.color = `rgba(253,144,185,${Math.random() * 0.6 + 0.2})`;
+          this.draw = function () {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(Math.random() * 1);
+            ctx.beginPath();
+            ctx.moveTo(0, this.size / 4);
+            ctx.bezierCurveTo(
+              this.size / 2,
+              -this.size / 2,
+              this.size,
+              this.size / 3,
+              0,
+              this.size
+            );
+            ctx.bezierCurveTo(
+              -this.size,
+              this.size / 3,
+              -this.size / 2,
+              -this.size / 2,
+              0,
+              this.size / 4
+            );
+            ctx.globalAlpha = 0.7;
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            ctx.restore();
+          };
+          this.update = function () {
+            this.y += this.yspeed;
+            this.x += Math.sin(this.y / 30) * 1.1;
+            if (this.y > h + 30) this.y = -10;
+          };
+        }
+        hearts = Array.from(
+          { length: 30 },
+          () =>
+            new heart(
+              Math.random() * w,
+              Math.random() * h,
+              Math.random() * 17 + 18
+            )
+        );
+        function animate() {
+          ctx.clearRect(0, 0, w, h);
+          for (let hrt of hearts) {
+            hrt.draw();
+            hrt.update();
+          }
+          requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Scroll galleries to left at load
+        document
+          .querySelectorAll(".gallery")
+          .forEach((g) => (g.scrollLeft = 0));
+
+        // Typed "Our Story"
+        const storyText =
+          "Arya, from 27th January 2023 to today, every moment with you has made my heart smile. Being your 'Babygirl' is the cutest, happiest part of my world. Thank you for comimg in my life. Happy Girlfriends Day to the one I cherish most!";
+        let idx = 0,
+          typingSpeed = 35;
+        function typeWriter() {
+          if (idx < storyText.length) {
+            document.getElementById("typed-text").innerHTML +=
+              storyText.charAt(idx);
+            idx++;
+            setTimeout(typeWriter, typingSpeed);
+          }
+        }
+        typeWriter();
+
+        // “Together Since” timer
+        function updateTogetherTimer() {
+          const start = new Date(2023, 0, 27, 23, 31, 0);
+          const now = new Date();
+          let years = now.getFullYear() - start.getFullYear();
+          let months = now.getMonth() - start.getMonth();
+          let days = now.getDate() - start.getDate();
+          let hours = now.getHours() - start.getHours();
+          let minutes = now.getMinutes() - start.getMinutes();
+          let seconds = now.getSeconds() - start.getSeconds();
+          if (seconds < 0) {
+            seconds += 60;
+            minutes--;
+          }
+          if (minutes < 0) {
+            minutes += 60;
+            hours--;
+          }
+          if (hours < 0) {
+            hours += 24;
+            days--;
+          }
+          if (days < 0) {
+            const prevMonthDays = new Date(
+              now.getFullYear(),
+              now.getMonth(),
+              0
+            ).getDate();
+            days += prevMonthDays;
+            months--;
+          }
+          if (months < 0) {
+            months += 12;
+            years--;
+          }
+          document.getElementById("together-timer").innerHTML = `
+          <span>${years} ${years === 1 ? "year" : "years"}</span>
+          <span>${months} ${months === 1 ? "month" : "months"}</span>
+          <span>${days} ${days === 1 ? "day" : "days"}</span>
+          <span>${hours} ${hours === 1 ? "hour" : "hours"}</span>
+          <span>${minutes} ${minutes === 1 ? "minute" : "minutes"}</span>
+          <span>${seconds} ${seconds === 1 ? "second" : "seconds"}</span>`;
+        }
+        setInterval(updateTogetherTimer, 1000);
+        updateTogetherTimer();
+
+        // Sweet Surprise confetti + open
+        const gift = document.getElementById("gift-surprise");
+        const message = document.getElementById("surprise-message");
+        const confetti = document.getElementById("confetti");
+        function launchConfetti() {
+          confetti.style.display = "block";
+          const ctx = confetti.getContext("2d");
+          let parts = [];
+          for (let i = 0; i < 39; i++)
+            parts.push({
+              x: Math.random() * confetti.width,
+              y: Math.random() * (confetti.height / 3) + 10,
+              r: Math.random() * 10 + 6,
+              g: `hsl(${Math.random() * 60 + 320},90%,80%)`,
+              vy: Math.random() * 2 + 2,
+              vx: Math.random() * 3 - 1.5,
+              ay: 0.15 + Math.random() * 0.1,
+              spin: Math.random() * 1.5 + 1,
+              angle: Math.random() * 3.14,
+            });
+          function animate() {
+            ctx.clearRect(0, 0, confetti.width, confetti.height);
+            for (let p of parts) {
+              ctx.save();
+              ctx.translate(p.x, p.y);
+              ctx.rotate(p.angle);
+              ctx.beginPath();
+              ctx.arc(0, 0, p.r, 0, 2 * Math.PI);
+              ctx.fillStyle = p.g;
+              ctx.globalAlpha = 0.92;
+              ctx.fill();
+              ctx.restore();
+              p.y += p.vy;
+              p.x += p.vx;
+              p.vy += p.ay;
+              p.angle += p.spin * 0.03;
+            }
+            parts = parts.filter((p) => p.y < confetti.height + 28);
+            if (parts.length > 0) requestAnimationFrame(animate);
+            else confetti.style.display = "none";
+          }
+          animate();
+        }
+        gift.addEventListener("click", function () {
+          if (gift.classList.contains("open")) return;
+          gift.classList.add("open");
+          setTimeout(() => {
+            message.style.display = "block";
+            launchConfetti();
+          }, 500);
+        });
+        gift.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") gift.click();
+        });
+      });
+    </script>
+  </body>
+</html>
